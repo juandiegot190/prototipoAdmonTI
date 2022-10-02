@@ -9,7 +9,7 @@ use Illuminate\Support\Arr;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Stapatie\Permissions\Models\Role;
+use Spatie\Permission\Models\Role;
 use App\Models\User;
 
 class UserController extends Controller
