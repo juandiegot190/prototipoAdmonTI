@@ -29,7 +29,6 @@
                                                 @if (!empty($user->getRoleNames()))
                                                     @foreach ($user->getRoleNames() as $rolName)
                                                         <label class="badge badge-success">{{ $rolName }}</label>
-                                                        <h5><span>{{$rolName}}</span></h5>
                                                     @endforeach
                                                 @endif
                                             </td>

@@ -10,10 +10,10 @@ class BlogController extends Controller
     //* permisos para el controlador
     public function __construct()
     {
-        $this->middleware('permission:blog-list | blog-create | blog-edit | blog-delete', ['only' => ['index','show']]);
-        $this->middleware('permission:blog-create', ['only' => ['create','store']]);
-        $this->middleware('permission:blog-edit',   ['only' => ['edit','update']]);
-        $this->middleware('permission:blog-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:ver-rol | crear-blog | editar-blog | borrar-blog', ['only' => ['index','show']]);
+        $this->middleware('permission:crear-blog', ['only' => ['create','store']]);
+        $this->middleware('permission:editar-blog',   ['only' => ['edit','update']]);
+        $this->middleware('permission:borrar-blog', ['only' => ['destroy']]);
     }
 
     /**
