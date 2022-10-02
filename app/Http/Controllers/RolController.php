@@ -14,7 +14,7 @@ class RolController extends Controller
 
     function __construct()
     {
-        $this->middleware('permission:ver-rol | crear-rol | editar-rol | eliminar-rol', ['only' => ['index','show']]);
+        $this->middleware('permission:ver-rol|crear-rol|editar-rol|eliminar-rol', ['only' => ['index','show']]);
         $this->middleware('permission:crear-rol', ['only' => ['create','store']]);
         $this->middleware('permission:editar-rol',   ['only' => ['edit','update']]);
         $this->middleware('permission:eliminar-rol', ['only' => ['destroy']]);
