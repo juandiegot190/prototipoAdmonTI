@@ -21,7 +21,7 @@
                                     </button>
                                 </div>
                             @endif
-                                {{ Form::model($blog, ['method' => 'PATCH','route' => ['blogs.update', $blog->id]]) }}
+                                {{ Form::model($blog, ['method' => 'PATCH','route' => ['pacientes.update',1]]) }}
                                     <di class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">

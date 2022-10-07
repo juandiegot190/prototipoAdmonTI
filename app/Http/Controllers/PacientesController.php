@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Blog;
 
 class PacientesController extends Controller
@@ -13,7 +14,7 @@ class PacientesController extends Controller
     }
     public function index()
     {
-        $pacientes = Blog::paginate(5);
+        $pacientes = User::paginate(5);
         return view('pacientes.index',compact('pacientes'));
     }
 
@@ -66,6 +67,8 @@ class PacientesController extends Controller
      */
     public function edit($id)
     {
+        $blog = json_decode("{id:1,title:'pedro',content:'abc@gasd.com'}");
+        return view('pacientes.edit',compact('blog'));
         
     }
 

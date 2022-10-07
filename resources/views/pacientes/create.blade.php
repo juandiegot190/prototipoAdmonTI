@@ -36,6 +36,30 @@
                                             {{ Form::text('lastName', null, ['class' => 'form-control']) }}
                                         </div>
                                     </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Teléfono</label>   
+                                            {{ Form::text('cellphone', null, ['class' => 'form-control']) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Dirección</label>   
+                                            {{ Form::text('address', null, ['class' => 'form-control']) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" style="font-size: 1rem;">DPI</label>   
+                                            {{ Form::text('dpi', null, ['class' => 'form-control']) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Edad</label>   
+                                            {{ Form::number('age', null, ['class' => 'form-control']) }}
+                                        </div>
+                                    </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
@@ -43,6 +67,7 @@
                                             {{ Form::textarea('content', null, ['placeholder' => 'Contenido','class' => 'form-control', 'style' => 'height: 200px']) }}
                                         </div>
                                     </div>
+
                                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                         <button type="submit" class="btn btn-primary">Guardar</button>
                                     </div>

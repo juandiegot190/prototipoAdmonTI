@@ -27,8 +27,8 @@
                                     @foreach ($pacientes as $paciente)
                                         <tr>
                                             <td style="display: none">{{ $paciente->id }}</td>
-                                            <td>{{ $paciente->title }}</td>
-                                            <td>{{ $paciente->content }}</td>
+                                            <td>{{ $paciente->name }}</td>
+                                            <td>{{ $paciente->email }}</td>
                                             <td>{{ $paciente->content }}</td>
                                             <td>
                                                 @can('editar-paciente')
