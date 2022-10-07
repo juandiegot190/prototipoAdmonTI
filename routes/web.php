@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PacientesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('blogs', BlogController::class);
     Route::resource('roles', RolController::class);
     Route::resource('users', UserController::class);
+    Route::resource('pacientes', PacientesController::class);
 });
