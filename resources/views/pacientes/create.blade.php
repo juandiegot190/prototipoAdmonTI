@@ -61,11 +61,16 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="col-xs-12 col-sm-6 col-md-6 ">
                                         <div class="form-group">
-                                            <strong>Contenido:</strong>
-                                            {{ Form::textarea('content', null, ['placeholder' => 'Contenido','class' => 'form-control', 'style' => 'height: 200px']) }}
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Fecha de Nacimiento</label>  
+                                            {{ Form::date('fechaNacimiento', null, ['class' => 'form-control']) }}
                                         </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-6  col-md-12">
+                                        <div class="form-group">
+                                           </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
