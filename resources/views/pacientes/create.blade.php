@@ -24,12 +24,19 @@
 
                             {{ Form::open(['route' => 'blogs.store','method'=>'POST']) }}
                                 <di class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
                                         <div class="form-group">
-                                            <strong> Titulo:</strong>
-                                            {{ Form::text('title', null, ['placeholder' => 'Titulo','class' => 'form-control']) }}
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Nombres</label>   
+                                            {{ Form::text('name', null, ['class' => 'form-control']) }}
                                         </div>
                                     </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Apellidos</label>   
+                                            {{ Form::text('lastName', null, ['class' => 'form-control']) }}
+                                        </div>
+                                    </div>
+
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong>Contenido:</strong>
