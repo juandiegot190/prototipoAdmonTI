@@ -10,12 +10,11 @@ class PacientesController extends Controller
 {
     public function __construct()
     {
-        
     }
     public function index()
     {
         $pacientes = User::paginate(5);
-        return view('pacientes.index',compact('pacientes'));
+        return view('pacientes.index', compact('pacientes'));
     }
 
     /**
@@ -26,7 +25,7 @@ class PacientesController extends Controller
     public function create()
     {
         return view('pacientes.create');
-     }
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -36,16 +35,32 @@ class PacientesController extends Controller
      */
     public function store(Request $request)
     {
-       
+
         $request->validate([
-            'title' => 'required',
-            'content' => 'required',
+            'name1' => 'required',
+            'lastName1' => 'required',
+            'genero' => 'required',
+            'estadoCivil' => 'required',
+            'fechaNacimiento' => 'required',
+            'edad' => 'required',
+            'accesoIGSS' => 'required',
+            'estadoDPI' => 'required',
+            'deptoOrigen' => 'required',
+            'muniOrigen' => 'required',
+            'address' => 'required',
+            'zona' => 'required',
+            'coloniaBarrioAldea' => 'required',
+            'deptoActual' => 'required',
+            'muniActual' => 'required',
+            'telefonoCasa' => 'required',
+            'telefono1' => 'required',
         ]);
 
-        Blog::create($request->all());
+        return $request;
+        // Blog::create($request->all());
 
         return redirect()->route('pacientes.index')
-                        ->with('success','Paciente creado correctamente.');
+            ->with('success', 'Paciente creado correctamente.');
     }
 
     /**
@@ -68,8 +83,7 @@ class PacientesController extends Controller
     public function edit($id)
     {
         $blog = json_decode("{id:1,title:'pedro',content:'abc@gasd.com'}");
-        return view('pacientes.edit',compact('blog'));
-        
+        return view('pacientes.edit', compact('blog'));
     }
 
     /**
@@ -81,7 +95,6 @@ class PacientesController extends Controller
      */
     public function update(Request $request, $id)
     {
-
     }
 
     /**
@@ -92,6 +105,5 @@ class PacientesController extends Controller
      */
     public function destroy()
     {
-        
     }
 }

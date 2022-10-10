@@ -12,6 +12,6 @@
         <i class=" fas fa-blog"></i><span>Blogs</span>
     </a>
     <a class="nav-link" href="/pacientes">
-        <i class=" fas fa-blog"></i><span>Pacientes</span>
+        <i class="fas fa-user-injured"></i><span>Pacientes</span>
     </a>
 </li>
