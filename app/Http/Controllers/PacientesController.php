@@ -54,6 +54,19 @@ class PacientesController extends Controller
             'muniActual' => 'required',
             'telefonoCasa' => 'required',
             'telefono1' => 'required',
+
+            'nameEncargado' => 'required',
+            'lastNameEncargado' => 'required',
+            'parentescoGeneral' => 'required',
+            'addressGeneral' => 'required',
+            'zonaGeneral' => 'required',
+            'coloniaBarrioAldeaGeneral' => 'required',
+        
+            'deptoActualGeneral' => 'required',
+            'muniActualGeneral' => 'required',
+            'telefono1General' => 'required',
+            'muniActualGeneral' => 'required',
+
         ]);
 
         return $request;

@@ -278,8 +278,8 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Teléfono 1*</label>
-                                            <input type="text" name="telefono1" class="telefono1 form-control">
-                                            @if ($errors->has('telefono1'))
+                                            <input type="text" name="telefono" class="telefono form-control">
+                                            @if ($errors->has('telefono'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
                                             @endif
                                         </div>
@@ -287,7 +287,7 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Teléfono 2</label>
-                                            <input type="text" name="telefono2" class="telefono2 form-control">
+                                            <input type="text" name="telefono" class="telefono form-control">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-4">
@@ -297,7 +297,7 @@
                                 </div>
                                 <div class="row justify-content-between px-3 align-items-center">
                                     <div class="text-center mb-1">
-                                        <a href="/pacientes" class="btn btn-block btn-lg btn-warning text-uppercase"><i class="fas fa-user-injured"></i> REGRESAR</a>
+                                        <a href="/pacientes" class="btn btn-block btn-lg btn-danger text-uppercase"><i class="fas fa-user-injured"></i> REGRESAR</a>
                                     </div>
                                     <div class="text-center">
                                         <a href="#" id="v-pills-next-tab" class="btn btn-block btn-lg btn-primary text-uppercase">Continuar <i class="fas fa-arrow-right" style="font-size: 1rem;"></i></a>
@@ -305,23 +305,220 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="General" role="tabpanel" aria-labelledby="General-tab">
-                                <di class="row gap-2">
+                                <div class="row pt-2">
+                                    <div class="col">
+                                        <h4 class="font-weight-bold text-uppercase">Padre</h4>
+                                    </div>
+                                </div>
+                                <div class="row gap-2">
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Nombres</label>
-                                            <input type="text" name="namePadre" class="name1 form-control">
+                                            <input type="text" name="namePadre" class="namePadre form-control">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Apellidos</label>
-                                            <input type="text" name="lastNamePadre" class="lastName1 form-control">
+                                            <input type="text" name="lastNamePadre" class="lastNamePadre form-control">
                                         </div>
                                     </div>
-                                    <div class="col-xs-8 col-sm-8 col-md-9 text-center pt-3">
-                                        <button type="submit" class="btn btn-block btn-lg btn-primary  text-uppercase">GUARDAR PACIENTE</button>
+                                    <div class="col-xs-12 col-sm-6 col-md-4 d-flex justify-content-between px-3 align-items-center">
+                                        <div class="form-group m-0" style="margin: auto !important;">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="radioOpPadre" id="radioPadre1" value="Fallecido">
+                                                <label class="form-check-label" for="radioPadre1">Fallecido</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="radioOpPadre" id="radioPadre2" value="Encargado">
+                                                <label class="form-check-label" for="radioPadre2">Encargado</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                </di>
+                                </div>
+                                <div class="row pt-2">
+                                    <div class="col">
+                                        <h4 class="font-weight-bold text-uppercase">Madre</h4>
+                                    </div>
+                                </div>
+                                <div class="row gap-2">
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Nombres</label>
+                                            <input type="text" name="nameMadre" class="nameMadre form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Apellidos</label>
+                                            <input type="text" name="lastNameMadre" class="lastNameMadre form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4 d-flex justify-content-between px-3 align-items-center">
+                                        <div class="form-group m-0" style="margin: auto !important;">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="radioOpMadre" id="radioMadre2" value="Fallecido">
+                                                <label class="form-check-label" for="radioMadre2">Fallecido</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="radioOpMadre" id="radioMadre2" value="Encargado">
+                                                <label class="form-check-label" for="radioMadre2">Encargado</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row pt-2">
+                                    <div class="col">
+                                        <h4 class="font-weight-bold text-uppercase">Encargado</h4>
+                                    </div>
+                                </div>
+                                <div class="row gap-2">
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Nombres</label>
+                                            <input type="text" name="nameEncargado" class="nameEncargado form-control">
+                                            @if ($errors->has('nameEncargado'))
+                                            <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Apellidos</label>
+                                            <input type="text" name="lastNameEncargado" class="lastNameEncargado form-control">
+                                            @if ($errors->has('lastNameEncargado'))
+                                            <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Parentesco</label>
+                                            <select class="form-control" name="parentescoGeneral">
+                                                <option value="0">Hermano (a)</option>
+                                                <option value="1">Tío (a)</option>
+                                                <option value="2">Hijo (a)</option>
+                                                <option value="3">Pareja</option>
+                                                <option value="4">Cuñado (a)</option>
+                                                <option value="5">Otros</option>
+                                            </select>
+                                            @if ($errors->has('parentescoGeneral'))
+                                            <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Especifique</label>
+                                            <input type="text" name="especifiqueGeneral" class="especifiqueGeneral form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Dirección*</label>
+                                            <input type="text" name="addressGeneral" class="addressGeneral form-control">
+                                            @if ($errors->has('addressGeneral'))
+                                            <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Zona</label>
+                                            <select class="form-control" name="zonaGeneral">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                                <option value="19">19</option>
+                                                <option value="20">20</option>
+                                            </select>
+                                            @if ($errors->has('zonaGeneral'))
+                                            <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Colonia / Barrio / Aldea*</label>
+                                            <input type="text" name="coloniaBarrioAldeaGeneral" class="coloniaBarrioAldeaGeneral form-control">
+                                            @if ($errors->has('coloniaBarrioAldeaGeneral'))
+                                            <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Departamento Actual</label>
+                                            <select class="form-control" name="deptoActualGeneral">
+                                                <option value="0">Pendiente</option>
+                                                <option value="1">Pendiente</option>
+                                            </select>
+                                            @if ($errors->has('deptoActualGeneral'))
+                                            <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Municipio Actual</label>
+                                            <select class="form-control" name="muniActualGeneral">
+                                                <option value="0">Pendiente</option>
+                                                <option value="1">Pendiente</option>
+                                            </select>
+                                            @if ($errors->has('muniActualGeneral'))
+                                            <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Teléfono 1*</label>
+                                            <input type="text" name="telefono1General" class="telefono form-control">
+                                            @if ($errors->has('telefono1General'))
+                                            <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Teléfono 2</label>
+                                            <input type="text" name="telefono2General" class="telefono form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="form-group">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row justify-content-between px-3 align-items-center">
+                                    <div class="text-center mb-1">
+                                        <a href="#" id="v-pills-back-tab" class="btn btn-block btn-lg btn-warning text-uppercase"><i class="fas fa-arrow-left" style="font-size: 1rem;"></i> Retroceder</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-block btn-lg btn-primary  text-uppercase">GUARDAR <i class="fas fa-save"></i></button>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-xs-8 col-sm-8 col-md-9 text-center pt-3">
+                                    <button type="submit" class="btn btn-block btn-lg btn-primary  text-uppercase">GUARDAR PACIENTE</button>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -337,8 +534,7 @@
 <script>
     $(document).ready(function() {
         $('.telefonoCasa').inputmask('9999-9999');
-        $('.telefono1').inputmask('9999-9999');
-        $('.telefono2').inputmask('9999-9999');
+        $('.telefono').inputmask('9999-9999');
         $('.dpi').inputmask('9999 99999 9999');
     });
 
@@ -351,8 +547,20 @@
 
         nextTab.addEventListener("click", function() {
 
-            i = (i == (tabs.length - 1)) ? 0 : i + 1;
-            tabs[i].click();
+            // i = (i == (tabs.length - 1)) ? 0 : i + 1;
+            tabs[1].click();
+
+        }, false);
+    }, false);
+
+    window.addEventListener("load", function() {
+        let tabs = document.querySelectorAll(".left-tabs a");
+
+        let nextTab = document.getElementById("v-pills-back-tab");
+
+        nextTab.addEventListener("click", function() {
+
+            tabs[0].click();
 
         }, false);
     }, false);
