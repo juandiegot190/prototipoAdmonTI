@@ -5,16 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Blog;
+use App\Models\Pacientes;
+use Illuminate\Support\Facades\DB;
 
 class PacientesController extends Controller
 {
     public function __construct()
     {
     }
-    public function index()
+    public function index(Request $request)
     {
-        $pacientes = User::paginate(5);
-        return view('pacientes.index', compact('pacientes'));
+        $texto =trim($request->get('texto'));
+        //$pacientes = Patient::paginate(6);
+        $pacientes=DB::table('pacientes')
+                    ->select('id','primer_Nombre','segundo_Nombre','primer_Apellido','segundo_Apellido','Direccion','Telefono')
+                    ->where('primer_Nombre','LIKE','%'.$texto.'%')
+                    ->orwhere('segundo_Nombre','LIKE','%'.$texto.'%')
+                    ->orwhere('primer_Apellido','LIKE','%'.$texto.'%')
+                    ->orwhere('segundo_Apellido','LIKE','%'.$texto.'%')
+                    ->orderBY('primer_Nombre')
+                    ->paginate(6);
+        return view('pacientes.index',compact('pacientes','texto'));
     }
 
     /**
