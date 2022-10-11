@@ -5,33 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Blog;
+use App\Models\Pacientes;
+use Illuminate\Support\Facades\DB;
 
 class PacientesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:ver-rol|crear-patient|editar-patient|borrar-patient', ['only' => ['index','show']]);
-        $this->middleware('permission:crear-patient', ['only' => ['create','store']]);
-        $this->middleware('permission:editar-patient',   ['only' => ['edit','update']]);
-        $this->middleware('permission:borrar-patient', ['only' => ['destroy']]);
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
         $texto =trim($request->get('texto'));
         //$pacientes = Patient::paginate(6);
         $pacientes=DB::table('pacientes')
-                    ->select('id','nombre_1','nombre_2','apellido_1','apellido_2','direccion','telefono')
-                    ->where('nombre_1','LIKE','%'.$texto.'%')
-                    ->orwhere('nombre_2','LIKE','%'.$texto.'%')
-                    ->orwhere('apellido_1','LIKE','%'.$texto.'%')
-                    ->orwhere('apellido_2','LIKE','%'.$texto.'%')
-                    ->orwhere('apellido_2','LIKE','%'.$texto.'%')
-                    ->orderBY('nombre_1')
+                    ->select('id','primer_Nombre','segundo_Nombre','primer_Apellido','segundo_Apellido','Direccion','Telefono')
+                    ->where('primer_Nombre','LIKE','%'.$texto.'%')
+                    ->orwhere('segundo_Nombre','LIKE','%'.$texto.'%')
+                    ->orwhere('primer_Apellido','LIKE','%'.$texto.'%')
+                    ->orwhere('segundo_Apellido','LIKE','%'.$texto.'%')
+                    ->orderBY('primer_Nombre')
                     ->paginate(6);
         return view('pacientes.index',compact('pacientes','texto'));
     }
