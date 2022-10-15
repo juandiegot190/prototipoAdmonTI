@@ -119,7 +119,7 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
-                                            <label class="font-weight-bold" style="font-size: 1rem;">Edad</label>
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Edad*</label>
                                             <input type="number" name="edad" class="edad form-control">
                                             @if ($errors->has('edad'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
@@ -166,9 +166,10 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Departamento de Origen</label>
-                                            <select class="form-control" name="deptoOrigen">
-                                                <option value="0">Pendiente</option>
-                                                <option value="1">Pendiente</option>
+                                            <select class="form-control" name="deptoOrigen" id="deptoOrigen">
+                                                @foreach ($depto as $deptos)
+                                                <option value="{{$deptos->ID_DEPARTAMENTO}}">{{$deptos->DEPARTAMENTO}}</option>
+                                                @endforeach
                                             </select>
                                             @if ($errors->has('deptoOrigen'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
@@ -178,9 +179,8 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Municipio de Origen</label>
-                                            <select class="form-control" name="muniOrigen">
-                                                <option value="0">Pendiente</option>
-                                                <option value="1">Pendiente</option>
+                                            <select class="form-control" name="muniOrigen" id="muniOrigen">
+
                                             </select>
                                             @if ($errors->has('muniOrigen'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
@@ -245,9 +245,10 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Departamento Actual</label>
-                                            <select class="form-control" name="deptoActual">
-                                                <option value="0">Pendiente</option>
-                                                <option value="1">Pendiente</option>
+                                            <select class="form-control" name="deptoActual" id="deptoActual">
+                                                @foreach ($depto as $deptos)
+                                                <option value="{{$deptos->ID_DEPARTAMENTO}}">{{$deptos->DEPARTAMENTO}}</option>
+                                                @endforeach
                                             </select>
                                             @if ($errors->has('deptoActual'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
@@ -257,9 +258,8 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Municipio Actual</label>
-                                            <select class="form-control" name="muniActual">
-                                                <option value="0">Pendiente</option>
-                                                <option value="1">Pendiente</option>
+                                            <select class="form-control" name="muniActual" id="muniActual">
+
                                             </select>
                                             @if ($errors->has('muniActual'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
@@ -278,8 +278,8 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Teléfono 1*</label>
-                                            <input type="text" name="telefono" class="telefono form-control">
-                                            @if ($errors->has('telefono'))
+                                            <input type="text" name="telefono1" class="telefono form-control">
+                                            @if ($errors->has('telefono1'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
                                             @endif
                                         </div>
@@ -287,7 +287,7 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Teléfono 2</label>
-                                            <input type="text" name="telefono" class="telefono form-control">
+                                            <input type="text" name="telefono2" class="telefono form-control">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-4">
@@ -375,7 +375,7 @@
                                 <div class="row gap-2">
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
-                                            <label class="font-weight-bold" style="font-size: 1rem;">Nombres</label>
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Nombres*</label>
                                             <input type="text" name="nameEncargado" class="nameEncargado form-control">
                                             @if ($errors->has('nameEncargado'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
@@ -384,7 +384,7 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
-                                            <label class="font-weight-bold" style="font-size: 1rem;">Apellidos</label>
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Apellidos*</label>
                                             <input type="text" name="lastNameEncargado" class="lastNameEncargado form-control">
                                             @if ($errors->has('lastNameEncargado'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
@@ -393,7 +393,7 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
-                                            <label class="font-weight-bold" style="font-size: 1rem;">Parentesco</label>
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Parentesco*</label>
                                             <select class="form-control" name="parentescoGeneral">
                                                 <option value="0">Hermano (a)</option>
                                                 <option value="1">Tío (a)</option>
@@ -424,7 +424,7 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
-                                            <label class="font-weight-bold" style="font-size: 1rem;">Zona</label>
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Zona*</label>
                                             <select class="form-control" name="zonaGeneral">
                                                 <option value="0">0</option>
                                                 <option value="1">1</option>
@@ -465,10 +465,11 @@
 
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
-                                            <label class="font-weight-bold" style="font-size: 1rem;">Departamento Actual</label>
-                                            <select class="form-control" name="deptoActualGeneral">
-                                                <option value="0">Pendiente</option>
-                                                <option value="1">Pendiente</option>
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Departamento Actual*</label>
+                                            <select class="form-control" name="deptoActualGeneral" id="deptoActualGeneral">
+                                                @foreach ($depto as $deptos)
+                                                <option value="{{$deptos->ID_DEPARTAMENTO}}">{{$deptos->DEPARTAMENTO}}</option>
+                                                @endforeach
                                             </select>
                                             @if ($errors->has('deptoActualGeneral'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
@@ -477,10 +478,9 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
-                                            <label class="font-weight-bold" style="font-size: 1rem;">Municipio Actual</label>
-                                            <select class="form-control" name="muniActualGeneral">
-                                                <option value="0">Pendiente</option>
-                                                <option value="1">Pendiente</option>
+                                            <label class="font-weight-bold" style="font-size: 1rem;">Municipio Actual*</label>
+                                            <select class="form-control" name="muniActualGeneral" id="muniActualGeneral">
+
                                             </select>
                                             @if ($errors->has('muniActualGeneral'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
@@ -564,5 +564,44 @@
 
         }, false);
     }, false);
+
+    document.getElementById('deptoOrigen').addEventListener('change', (e) => {
+        const idDepartamento = e.target.value;
+        $.getJSON(`municipiosGet/${idDepartamento}`, function(municipiosData) {
+            let htmlOptionsMunicipios = '';
+            municipiosData.length === 0 ? htmlOptionsMunicipios += `<option value="">no hay municipios disponibles</option>` :
+                municipiosData.forEach(function(datamunicipiosoptions) {
+                    htmlOptionsMunicipios += `<option value="${datamunicipiosoptions.ID_MUNICIPIO}">${datamunicipiosoptions.MUNICIPIO}</option>`
+                })
+
+            $("#muniOrigen").html(htmlOptionsMunicipios);
+        })
+    })
+
+    document.getElementById('deptoActual').addEventListener('change', (e) => {
+        const idDepartamento = e.target.value;
+        $.getJSON(`municipiosGet/${idDepartamento}`, function(municipiosData) {
+            let htmlOptionsMunicipios = '';
+            municipiosData.length === 0 ? htmlOptionsMunicipios += `<option value="">no hay municipios disponibles</option>` :
+                municipiosData.forEach(function(datamunicipiosoptions) {
+                    htmlOptionsMunicipios += `<option value="${datamunicipiosoptions.ID_MUNICIPIO}">${datamunicipiosoptions.MUNICIPIO}</option>`
+                })
+
+            $("#muniActual").html(htmlOptionsMunicipios);
+        })
+    })
+
+    document.getElementById('deptoActualGeneral').addEventListener('change', (e) => {
+        const idDepartamento = e.target.value;
+        $.getJSON(`municipiosGet/${idDepartamento}`, function(municipiosData) {
+            let htmlOptionsMunicipios = '';
+            municipiosData.length === 0 ? htmlOptionsMunicipios += `<option value="">no hay municipios disponibles</option>` :
+                municipiosData.forEach(function(datamunicipiosoptions) {
+                    htmlOptionsMunicipios += `<option value="${datamunicipiosoptions.ID_MUNICIPIO}">${datamunicipiosoptions.MUNICIPIO}</option>`
+                })
+
+            $("#muniActualGeneral").html(htmlOptionsMunicipios);
+        })
+    })
 </script>
 @endsection

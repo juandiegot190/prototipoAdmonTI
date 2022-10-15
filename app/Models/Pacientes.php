@@ -9,12 +9,12 @@ class Pacientes extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'primer_Nombre',
-        'segundo_Nombre',
-        'tercer_Nombre',
-        'primer_Apellido',
-        'segundo_Apellido',
-        'Apellido_de_Casado',
+        'Nombre_1',
+        'Nombre_2',
+        'Nombre_3',
+        'Apellido_1',
+        'Apellido_2',
+        'Apellido_de_Casada',
         'Estado_Civil',
         'idDatos_DPI',
         'Acceso_al_Igss',

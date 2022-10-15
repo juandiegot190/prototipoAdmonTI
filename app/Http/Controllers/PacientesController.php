@@ -15,17 +15,17 @@ class PacientesController extends Controller
     }
     public function index(Request $request)
     {
-        $texto =trim($request->get('texto'));
+        $texto = trim($request->get('texto'));
         //$pacientes = Patient::paginate(6);
-        $pacientes=DB::table('pacientes')
-                    ->select('id','primer_Nombre','segundo_Nombre','primer_Apellido','segundo_Apellido','Direccion','Telefono')
-                    ->where('primer_Nombre','LIKE','%'.$texto.'%')
-                    ->orwhere('segundo_Nombre','LIKE','%'.$texto.'%')
-                    ->orwhere('primer_Apellido','LIKE','%'.$texto.'%')
-                    ->orwhere('segundo_Apellido','LIKE','%'.$texto.'%')
-                    ->orderBY('primer_Nombre')
-                    ->paginate(6);
-        return view('pacientes.index',compact('pacientes','texto'));
+        $pacientes = DB::table('pacientes')
+            ->select('id', 'Nombre_1', 'Nombre_2', 'Apellido_1', 'Apellido_2', 'Direccion', 'Telefono')
+            ->where('Nombre_1', 'LIKE', '%' . $texto . '%')
+            ->orwhere('Nombre_2', 'LIKE', '%' . $texto . '%')
+            ->orwhere('Apellido_1', 'LIKE', '%' . $texto . '%')
+            ->orwhere('Apellido_2', 'LIKE', '%' . $texto . '%')
+            ->orderBY('Nombre_1')
+            ->paginate(6);
+        return view('pacientes.index', compact('pacientes', 'texto'));
     }
 
     /**
@@ -35,7 +35,12 @@ class PacientesController extends Controller
      */
     public function create()
     {
-        return view('pacientes.create');
+        // $results = DB::select('select * from tb_departamento ');
+
+        $depto = DB::select('select ID_DEPARTAMENTO, DEPARTAMENTO from tb_departamento ');
+        //$paciente = DB::select("select * from tbl_pacientes inner join"); //name, apellido, id_departamento, id_municipio
+        // DB::table('tb_departamento')->select('ID_DEPARTAMENTO', 'DEPARTAMENTO');
+        return  view('pacientes.create', compact('depto'));
     }
 
     /**
@@ -72,7 +77,7 @@ class PacientesController extends Controller
             'addressGeneral' => 'required',
             'zonaGeneral' => 'required',
             'coloniaBarrioAldeaGeneral' => 'required',
-        
+
             'deptoActualGeneral' => 'required',
             'muniActualGeneral' => 'required',
             'telefono1General' => 'required',
@@ -83,10 +88,16 @@ class PacientesController extends Controller
         return $request;
         // Blog::create($request->all());
 
-        return redirect()->route('pacientes.index')
-            ->with('success', 'Paciente creado correctamente.');
+        // return redirect()->route('pacientes.index')
+        //     ->with('success', 'Paciente creado correctamente.');
     }
 
+    public function municipiosGet($id)
+    {
+        $municipiosValues = DB::select("select ID_MUNICIPIO, MUNICIPIO from tb_municipio where ID_DEPARTAMENTO = $id");
+     
+       return $municipiosValues;
+    }
     /**
      * Display the specified resource.
      *
