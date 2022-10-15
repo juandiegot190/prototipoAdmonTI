@@ -15,16 +15,25 @@ class PacientesController extends Controller
     }
     public function index(Request $request)
     {
-        $texto = trim($request->get('texto'));
-        //$pacientes = Patient::paginate(6);
-        $pacientes = DB::table('pacientes')
-            ->select('id', 'Nombre_1', 'Nombre_2', 'Apellido_1', 'Apellido_2', 'Direccion', 'Telefono')
-            ->where('Nombre_1', 'LIKE', '%' . $texto . '%')
-            ->orwhere('Nombre_2', 'LIKE', '%' . $texto . '%')
-            ->orwhere('Apellido_1', 'LIKE', '%' . $texto . '%')
-            ->orwhere('Apellido_2', 'LIKE', '%' . $texto . '%')
-            ->orderBY('Nombre_1')
-            ->paginate(6);
+        if (is_null($request->get('texto'))) {
+            $texto = trim($request->get('texto'));
+            $pacientes = DB::table('tb_paciente')
+                ->select('id', 'Nombre_1', 'Nombre_2', 'Apellido_1', 'Apellido_2', 'Direccion', 'Telefono')
+                ->orderBY('Nombre_1')
+                ->paginate(6);
+        } else {
+
+            $texto = trim($request->get('texto'));
+            //$pacientes = Patient::paginate(6);
+            $pacientes = DB::table('tb_paciente')
+                ->select('id', 'Nombre_1', 'Nombre_2', 'Apellido_1', 'Apellido_2', 'Direccion', 'Telefono')
+                ->where('Nombre_1', 'LIKE', '%' . $texto . '%')
+                ->orwhere('Nombre_2', 'LIKE', '%' . $texto . '%')
+                ->orwhere('Apellido_1', 'LIKE', '%' . $texto . '%')
+                ->orwhere('Apellido_2', 'LIKE', '%' . $texto . '%')
+                ->orderBY('Nombre_1')
+                ->paginate(6);
+        }
         return view('pacientes.index', compact('pacientes', 'texto'));
     }
 
@@ -95,8 +104,8 @@ class PacientesController extends Controller
     public function municipiosGet($id)
     {
         $municipiosValues = DB::select("select ID_MUNICIPIO, MUNICIPIO from tb_municipio where ID_DEPARTAMENTO = $id");
-     
-       return $municipiosValues;
+
+        return $municipiosValues;
     }
     /**
      * Display the specified resource.

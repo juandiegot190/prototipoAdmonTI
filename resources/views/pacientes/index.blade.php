@@ -33,7 +33,7 @@
                             </thead>
                             <tbody>
                                 @if (count($pacientes)<=0) <tr>
-                                    <td colspan="5">¡El paciente no existe!</td>
+                                    <td colspan="5">No hay registros de pacientes.</td>
                                     </tr>
                                     @else
                                     @foreach ($pacientes as $paciente)
