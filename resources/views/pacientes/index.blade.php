@@ -38,11 +38,11 @@
                                     @else
                                     @foreach ($pacientes as $paciente)
                                     <tr>
-                                        <td style="display: none">{{ $paciente->id }}</td>
+                                        <td style="display: none">{{ $paciente->id_Paciente }}</td>
                                         <td>{{ $paciente->Nombre_1." ".$paciente->Nombre_2 }}</td>
                                         <td>{{ $paciente->Apellido_1." ".$paciente->Apellido_2 }}</td>
                                         <td>{{ $paciente->Direccion }}</td>
-                                        <td>{{ $paciente->Telefono }}</td>
+                                        <td>{{ $paciente->Celular_1 }}</td>
                                         <td><select name="dowpdown" class="btn btn-warning">
                                                 <option value="1">Activo</option>
                                                 <option value="2">Inactivo</option>
@@ -50,7 +50,7 @@
                                         <td>
                                             <div class="btn-group" roel="group" aria-lavel="Basic exame">
                                                 <a href="" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                                                <a href="{{ route('pacientes.edit', $paciente->id) }}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="{{ route('pacientes.edit', $paciente->id_Paciente) }}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
                                                 <a href="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                             </div>
                                         </td>

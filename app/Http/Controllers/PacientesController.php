@@ -18,7 +18,7 @@ class PacientesController extends Controller
         if (is_null($request->get('texto'))) {
             $texto = trim($request->get('texto'));
             $pacientes = DB::table('tb_paciente')
-                ->select('id', 'Nombre_1', 'Nombre_2', 'Apellido_1', 'Apellido_2', 'Direccion', 'Telefono')
+                ->select('id_Paciente', 'Nombre_1', 'Nombre_2', 'Apellido_1', 'Apellido_2', 'Direccion', 'Celular_1')
                 ->orderBY('Nombre_1')
                 ->paginate(6);
         } else {
@@ -26,7 +26,7 @@ class PacientesController extends Controller
             $texto = trim($request->get('texto'));
             //$pacientes = Patient::paginate(6);
             $pacientes = DB::table('tb_paciente')
-                ->select('id', 'Nombre_1', 'Nombre_2', 'Apellido_1', 'Apellido_2', 'Direccion', 'Telefono')
+                ->select('id_Paciente', 'Nombre_1', 'Nombre_2', 'Apellido_1', 'Apellido_2', 'Direccion', 'Celular_1')
                 ->where('Nombre_1', 'LIKE', '%' . $texto . '%')
                 ->orwhere('Nombre_2', 'LIKE', '%' . $texto . '%')
                 ->orwhere('Apellido_1', 'LIKE', '%' . $texto . '%')
@@ -124,10 +124,16 @@ class PacientesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_Paciente)
     {
-        $blog = json_decode("{id:1,title:'pedro',content:'abc@gasd.com'}");
-        return view('pacientes.edit', compact('blog'));
+        $depto = DB::select('select ID_DEPARTAMENTO, DEPARTAMENTO from tb_departamento ');
+        $paciente = DB::select('select * from tb_paciente p inner join tb_municipio m on m.ID_MUNICIPIO = p.ID_Municipio where id_Paciente = ' . $id_Paciente);
+        foreach ($paciente as $pass) {
+            $pacientes = $pass;
+        }
+        // $pacientes = Pacientes::find($id_Paciente); 
+        // $pacientes = Pacientes::find($id_Paciente);
+        return view('pacientes.edit', compact('pacientes', 'depto'));
     }
 
     /**
