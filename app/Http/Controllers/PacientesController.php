@@ -127,7 +127,52 @@ class PacientesController extends Controller
     public function edit($id_Paciente)
     {
         $depto = DB::select('select ID_DEPARTAMENTO, DEPARTAMENTO from tb_departamento ');
-        $paciente = DB::select('select * from tb_paciente p inner join tb_municipio m on m.ID_MUNICIPIO = p.ID_Municipio where id_Paciente = ' . $id_Paciente);
+        $paciente = DB::select('select 
+                                    id_paciente as id,
+                                    no_expediente as expediente,
+                                    nombre_1,
+                                    nombre_2,
+                                    nombre_3,
+                                    apellido_1,
+                                    apellido_2,
+                                    apellido_de_casada,
+                                    estado_civil,
+                                    p.iddatos_dpi as id_datos_dpi,
+                                    p.acceso_al_igss,
+                                    p.nacionalidad,
+                                    p.edad,
+                                    p.genero,
+                                    p.fecha_nacimiento,
+                                    p.id_estado_paciente_activo as paciente_activo,
+                                    p.id_estado_paciente_inactivo as paciente_inactivo,
+                                    p.religion,
+                                    p.direccion,
+                                    p.zona,
+                                    p.colonia_barrio_aldea,
+                                    p.referencia_vivienda as referencia_vivienda,
+                                    p.telefono_casa,
+                                    p.celular_1,
+                                    p.Celular_2 ,
+                                    p.id_familia_responsable as id_familiar_responsable,
+                                    mactual.id_municipio as id_municipio_actual,
+                                    mactual.municipio as municipio_actual,
+                                    dactual.id_departamento as id_departamento_actual,
+                                    dactual.departamento as departamento_actual,
+                                    dd.iddatos_dpi as id_datos_dpi,
+                                    dd.dpi as dpi,
+                                    dd.estado_dpi as estado_dpi,
+                                    dd.fecha_vencimiento as fecha_vencimiento_dpi,
+                                    mdpi.id_municipio as id_municipio_dpi,
+                                    mdpi.municipio as municipio_dpi,
+                                    ddpi.id_departamento as id_departamento_dpi,
+                                    ddpi.departamento as departamento_dpi
+                                from tb_paciente p 
+                                inner join tb_municipio mActual on mActual.ID_MUNICIPIO = p.ID_Municipio 
+                                inner join tb_departamento dActual on dActual.ID_DEPARTAMENTO = mActual.ID_DEPARTAMENTO
+                                inner join tb_datos_dpi dd on dd.idDatos_DPI = p.idDatos_DPI
+                                inner join tb_municipio mDpi on mDpi.ID_MUNICIPIO = dd.ID_Municipio 
+                                inner join tb_departamento dDpi on dDpi.ID_DEPARTAMENTO = mDpi.ID_DEPARTAMENTO
+                                where id_Paciente = ' . $id_Paciente);
         foreach ($paciente as $pass) {
             $pacientes = $pass;
         }

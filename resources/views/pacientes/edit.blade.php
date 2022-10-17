@@ -38,7 +38,7 @@
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Primer Nombre*</label>
                                             <!-- {{ Form::text('primer_Nombre', null, ['placeholder' => 'Nombre','class' => 'form-control']) }} -->
-                                            <input type="text" name="primer_Nombre" value="{{$pacientes->Nombre_1}}" class="name1 form-control">
+                                            <input type="text" name="primer_Nombre" value="{{$pacientes->nombre_1}}" class="name1 form-control">
                                             @if ($errors->has('name1'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
                                             @endif
@@ -47,19 +47,19 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Segundo Nombre</label>
-                                            <input type="text" name="name2" value="{{$pacientes->Nombre_2}}" class="name2 form-control">
+                                            <input type="text" name="name2" value="{{$pacientes->nombre_2}}" class="name2 form-control">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Tercer Nombre</label>
-                                            <input type="text" name="name3" value="{{$pacientes->Nombre_3}}" class="name3 form-control">
+                                            <input type="text" name="name3" value="{{$pacientes->nombre_3}}" class="name3 form-control">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Primer Apellido*</label>
-                                            <input type="text" name="lastName1" value="{{$pacientes->Apellido_1}}" class="lastName1 form-control">
+                                            <input type="text" name="lastName1" value="{{$pacientes->apellido_1}}" class="lastName1 form-control">
                                             @if ($errors->has('lastName1'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
                                             @endif
@@ -68,21 +68,21 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Segundo Apellido</label>
-                                            <input type="text" name="lastName2" value="{{$pacientes->Apellido_2}}" class="lastName2 form-control">
+                                            <input type="text" name="lastName2" value="{{$pacientes->apellido_2}}" class="lastName2 form-control">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Apellido de Casada</label>
-                                            <input type="text" name="lastName3" value="{{$pacientes->Apellido_de_Casada}}" class="lastName3 form-control">
+                                            <input type="text" name="lastName3" value="{{$pacientes->apellido_de_casada}}" class="lastName3 form-control">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Género</label>
-                                            <select class="form-control" value="{{$pacientes->Genero}}" name="genero">
-                                                <option value="F" selected="{{$pacientes->Genero == 'F' ? 'true' : 'false'}}">Femenino</option>
-                                                <option value="M" selected="{{$pacientes->Genero == 'M' ? 'true' : 'false'}}">Masculino</option>
+                                            <select class="form-control" value="{{$pacientes->genero}}" name="genero">
+                                                <option value="F" {{$pacientes->genero == 'F'  ? 'selected' : ''}}>Femenino</option>
+                                                <option value="M" {{$pacientes->genero == 'M'  ? 'selected' : ''}}>Masculino</option>
                                             </select>
                                             @if ($errors->has('genero'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
@@ -92,11 +92,11 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Estado Civil</label>
-                                            <select class="form-control" name="estadoCivil">
-                                                <option value="0">Soltero (a)</option>
-                                                <option value="1">Casado (a)</option>
-                                                <option value="2">Divorciado (a)</option>
-                                                <option value="3">Viudo (a)</option>
+                                            <select class="form-control" value="{{$pacientes->estado_civil}}" name="estadoCivil">
+                                                <option value="Soltero (a)" {{$pacientes->estado_civil == 'Soltero (a)'  ? 'selected' : ''}}>Soltero (a)</option>
+                                                <option value="Casado (a)" {{$pacientes->estado_civil == 'Casado (a)'  ? 'selected' : ''}}>Casado (a)</option>
+                                                <option value="Divorciado (a)" {{$pacientes->estado_civil == 'Divorciado (a)'  ? 'selected' : ''}}>Divorciado (a)</option>
+                                                <option value="Viudo (a)" {{$pacientes->estado_civil == 'Viudo (a)'  ? 'selected' : ''}}>Viudo (a)</option>
                                             </select>
                                             @if ($errors->has('estadoCivil'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
@@ -106,13 +106,14 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Nacionalidad</label>
-                                            <input type="text" name="nacionalidad" value="{{$pacientes->Nacionalidad}}" class="nacionalidad form-control">
+                                            <input type="text" name="nacionalidad" value="{{$pacientes->nacionalidad}}" class="nacionalidad form-control">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-4 ">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Fecha de Nacimiento*</label>
-                                            {{ Form::date('fechaNacimiento', null, ['class' => 'form-control']) }}
+                                            <input type="date" name="fechaNacimiento" value="{{$pacientes->fecha_nacimiento}}" class=" form-control">
+                                            <!-- {{ Form::date('fechaNacimiento', $pacientes->fecha_nacimiento, ['class' => 'form-control']) }} -->
                                             @if ($errors->has('fechaNacimiento'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
                                             @endif
@@ -121,7 +122,7 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Edad</label>
-                                            <input type="number" name="edad" class="edad form-control" value="{{$pacientes->Edad}}">
+                                            <input type="number" name="edad" class="edad form-control" value="{{$pacientes->edad}}">
                                             @if ($errors->has('edad'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
                                             @endif
@@ -130,9 +131,9 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Acceso al IGSS</label>
-                                            <select class="form-control" name="accesoIGSS">
-                                                <option value="1" selected="{{$pacientes->Genero == '1' ? 'true' : 'false'}}">Sí</option>
-                                                <option value="0" selected="{{$pacientes->Genero == '0' ? 'true' : 'false'}}">No</option>
+                                            <select class="form-control" name="accesoIGSS" value="{{$pacientes->acceso_al_igss}}">
+                                                <option value="1" {{$pacientes->acceso_al_igss == '1' ? 'selected' : ''}}>Sí</option>
+                                                <option value="0" {{$pacientes->acceso_al_igss == '0' ? 'selected' : ''}}>No</option>
                                             </select>
                                             @if ($errors->has('accesoIGSS'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
@@ -142,22 +143,22 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">DPI/CUI</label>
-                                            <input type="text" name="dpi" class="dpi form-control">
+                                            <input type="text" name="dpi" class="dpi form-control" value="{{$pacientes->dpi}}">
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-6 col-md-4 ">
-                                        <div class="form-group">
+                                    <div class=" col-xs-12 col-sm-6 col-md-4 ">
+                                        <div class=" form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Fecha de Vencimiento DPI</label>
-                                            {{ Form::date('dpiFechaVencimiento', null, ['class' => 'form-control']) }}
+                                            <input type="date" name="dpiFechaVencimiento" value="{{$pacientes->fecha_vencimiento_dpi}}" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Estado del DPI</label>
-                                            <select class="form-control" name="estadoDPI">
-                                                <option value="1">Activo</option>
-                                                <option value="0">No tramitado</option>
-                                                <option value="2">En trámite</option>
+                                            <select class="form-control" name="estadoDPI" value="{{$pacientes->estado_dpi}}">
+                                                <option value="0" {{$pacientes->estado_dpi == '0'  ? 'selected' : ''}}>No tramitado</option>
+                                                <option value="1" {{$pacientes->estado_dpi == '1'  ? 'selected' : ''}}>Vigente</option>
+                                                <option value="2" {{$pacientes->estado_dpi == '2'  ? 'selected' : ''}}>En trámite</option>
                                             </select>
                                             @if ($errors->has('estadoDPI'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
@@ -167,9 +168,9 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Departamento de Origen</label>
-                                            <select class="form-control" name="deptoOrigen" id="deptoOrigen">
+                                            <select class="form-control" name="deptoOrigen" id="deptoOrigen" value="{{$pacientes->id_departamento_dpi}}">
                                                 @foreach ($depto as $deptos)
-                                                <option value="{{$deptos->ID_DEPARTAMENTO}}">{{$deptos->DEPARTAMENTO}}</option>
+                                                <option value="{{$deptos->ID_DEPARTAMENTO}}" {{$pacientes->id_departamento_dpi == $deptos->ID_DEPARTAMENTO  ? 'selected' : ''}}>{{$deptos->DEPARTAMENTO}}</option>
                                                 @endforeach
                                             </select>
                                             @if ($errors->has('deptoOrigen'))
@@ -181,7 +182,7 @@
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Municipio de Origen</label>
                                             <select class="form-control" name="muniOrigen" id="muniOrigen">
-
+                                                <option value="{{$pacientes->id_municipio_dpi}}">{{$pacientes->municipio_dpi}}</option>
                                             </select>
                                             @if ($errors->has('muniOrigen'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
@@ -191,7 +192,7 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Dirección*</label>
-                                            <input type="text" name="address" class="address form-control" value="{{$pacientes->Direccion}}">
+                                            <input type="text" name="address" class="address form-control" value="{{$pacientes->direccion}}">
                                             @if ($errors->has('address'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
                                             @endif
@@ -200,28 +201,31 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Zona</label>
-                                            <select class="form-control" name="zona">
-                                                <option value="0">0</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
-                                                <option value="13">13</option>
-                                                <option value="14">14</option>
-                                                <option value="15">15</option>
-                                                <option value="16">16</option>
-                                                <option value="17">17</option>
-                                                <option value="18">18</option>
-                                                <option value="19">19</option>
-                                                <option value="20">20</option>
+                                            <select class="form-control" name="zona" value="{{$pacientes->zona}}">
+                                                @for($i = 0; $i <= 20; $i++) <option value="{{$i}}" {{$pacientes->zona == $i  ? 'selected' : ''}}>{{$i}}</option>
+                                                    @endfor
+
+                                                    <!-- <option value="0">0</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+                                                    <option value="13">13</option>
+                                                    <option value="14">14</option>
+                                                    <option value="15">15</option>
+                                                    <option value="16">16</option>
+                                                    <option value="17">17</option>
+                                                    <option value="18">18</option>
+                                                    <option value="19">19</option>
+                                                    <option value="20">20</option> -->
                                             </select>
                                             @if ($errors->has('zona'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
@@ -231,7 +235,7 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Colonia / Barrio / Aldea*</label>
-                                            <input type="text" name="coloniaBarrioAldea" value="{{$pacientes->Colonia_Barrio_Aldea}}" class="coloniaBarrioAldea form-control">
+                                            <input type="text" name="coloniaBarrioAldea" value="{{$pacientes->colonia_barrio_aldea}}" class="coloniaBarrioAldea form-control">
                                             @if ($errors->has('coloniaBarrioAldea'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
                                             @endif
@@ -240,15 +244,15 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Referencia de la Vivienda</label>
-                                            <input type="text" name="refVivienda" class="refVivienda form-control" value="{{$pacientes->Referencia_Vivienda}}">
+                                            <input type="text" name="refVivienda" class="refVivienda form-control" value="{{$pacientes->referencia_vivienda}}">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Departamento Actual</label>
-                                            <select class="form-control" name="deptoActual" id="deptoActual">
+                                            <select class="form-control" name="deptoActual" id="deptoActual" value="{{$pacientes->id_departamento_actual}}">
                                                 @foreach ($depto as $deptos)
-                                                <option value="{{$deptos->ID_DEPARTAMENTO}}">{{$deptos->DEPARTAMENTO}}</option>
+                                                <option value="{{$deptos->ID_DEPARTAMENTO}}" {{$pacientes->id_departamento_actual == $deptos->ID_DEPARTAMENTO  ? 'selected' : ''}}>{{$deptos->DEPARTAMENTO}}</option>
                                                 @endforeach
                                             </select>
                                             @if ($errors->has('deptoActual'))
@@ -260,6 +264,7 @@
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Municipio Actual</label>
                                             <select class="form-control" name="muniActual" id="muniActual">
+                                                <option value="{{$pacientes->id_municipio_actual}}">{{$pacientes->municipio_actual}}</option>
 
                                             </select>
                                             @if ($errors->has('muniActual'))
@@ -270,7 +275,7 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Teléfono Casa*</label>
-                                            <input type="text" name="telefonoCasa" class="telefonoCasa form-control" value="{{$pacientes->Telefono_Casa}}">
+                                            <input type="text" name="telefonoCasa" class="telefonoCasa form-control" value="{{$pacientes->telefono_casa}}">
                                             @if ($errors->has('telefonoCasa'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
                                             @endif
@@ -279,7 +284,7 @@
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Teléfono 1*</label>
-                                            <input type="text" name="telefono1" class="telefono form-control" value="{{$pacientes->Celular_1}}">
+                                            <input type="text" name="telefono1" class="telefono form-control" value="{{$pacientes->celular_1}}">
                                             @if ($errors->has('telefono1'))
                                             <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Este campo es requerido.</span>
                                             @endif
@@ -572,7 +577,7 @@
             let htmlOptionsMunicipios = '';
             municipiosData.length === 0 ? htmlOptionsMunicipios += `<option value="">no hay municipios disponibles</option>` :
                 municipiosData.forEach(function(datamunicipiosoptions) {
-                    htmlOptionsMunicipios += `<option value="${datamunicipiosoptions.ID_MUNICIPIO}" selected="${$pacientes.ID_Municipio == datamunicipiosoptions.ID_MUNICIPIO ? 'true' : 'false'}">${datamunicipiosoptions.MUNICIPIO}</option>`
+                    htmlOptionsMunicipios += `<option value="${datamunicipiosoptions.ID_MUNICIPIO}">${datamunicipiosoptions.MUNICIPIO}</option>`
                 })
 
             $("#muniOrigen").html(htmlOptionsMunicipios);
