@@ -35,6 +35,9 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="Personal" role="tabpanel" aria-labelledby="Personal-tab">
                                 <div class="row gap-2">
+                                    <div class="form-group">
+                                        <input type="hidden" name="idPaciente" value="{{$pacientes->id}}" class="name1 form-control">
+                                    </div>
                                     <div class="col-xs-12 col-sm-6 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold" style="font-size: 1rem;">Primer Nombre*</label>
