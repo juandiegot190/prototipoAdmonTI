@@ -11,6 +11,7 @@ class Pacientes extends Model
     protected $table = "tb_paciente";
     protected  $primaryKey = 'id_Paciente';
     protected $fillable = [
+        'no_expediente',
         'Nombre_1',
         'Nombre_1',
         'Nombre_2',
